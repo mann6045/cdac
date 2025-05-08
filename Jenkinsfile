@@ -10,13 +10,13 @@ pipeline {
         stage('Build') {
             steps {
 	echo 'Building the Application'
-                  sh 'hello.bat'
+                  bat 'hello.bat'
             }
         }
         stage('Test') {
             steps {
 	echo 'Building the Application'
-                  sh 'echo "All TEST CASES PASSSSSSED" '
+                  bat 'echo "All TEST CASES PASSSSSSED" '
             }
         }
         stage('Deploy') {
