@@ -3,33 +3,32 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-	echo 'Cloning the repository'
-                 git branch: 'main', url: 'https://github.com/mann6045/cdac.git',credentialsId: 'gitcred'
+                echo 'Cloning the repository'
+                git branch: 'main', url: 'https://github.com/mann6045/cdac.git', credentialsId: 'gitcred'
             }
         }
         stage('Build') {
             steps {
-	echo 'Building the Application'
-                  bat 'hello.bat'
+                echo 'Building the Application'
+                sh './hello.sh' 
             }
         }
         stage('Test') {
             steps {
-	echo 'Building the Application'
-                  bat 'echo "All TEST CASES PASSSSSSED" '
+                echo 'Running Tests'
+                sh 'echo "All TEST CASES PASSSSSSED"'
             }
         }
         stage('Deploy') {
             steps {
-	echo 'Building the Application'
-                  bat 'echo "Deployement SUCCESSFUL" '
+                echo 'Deploying the Application'
+                sh 'echo "Deployment SUCCESSFUL"'
             }
-             post { 
+            post { 
                 always { 
-                echo 'Pipeline execution Completed Successfully :) !'
-             }
+                    echo 'Pipeline execution Completed Successfully :) !'
+                }
+            }
         }
-        }
-       
     }
 }
