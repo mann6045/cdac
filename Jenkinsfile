@@ -4,13 +4,13 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo 'Cloning the repository'
-                git branch: 'main', url: 'https://github.com/chntraining/cdac.git', credentialsId: 'gitcred'
+                git branch: 'main', url: 'https://github.com/mann6045/cdac.git', credentialsId: 'gitcred'
             }
         }
         stage('Build') {
             steps {
                 echo 'Building the Application'
-                sh './hello.sh' // assuming you have a shell script now instead of hello.bat
+                sh './hello.sh' 
             }
         }
         stage('Test') {
