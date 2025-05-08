@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Application'
-                sh './hello.sh' 
+                sh 'hello.sh' 
             }
         }
         stage('Test') {
